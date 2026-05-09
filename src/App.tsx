@@ -72,7 +72,7 @@ export default function App() {
   return (
     <div className="min-h-screen selection:bg-swojski-yellow selection:text-white wood-pattern">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-swojski-black/95 border-b-2 border-swojski-yellow/30 shadow-2xl">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-swojski-black border-b-2 border-swojski-yellow/30 shadow-2xl">
         <div className="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="relative shrink-0">
@@ -112,18 +112,19 @@ export default function App() {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-t from-swojski-black via-swojski-black/60 to-transparent z-10" />
           <img 
-            src="https://images.unsplash.com/photo-1547524960-8f2733036ee3?auto=format&fit=crop&q=80&w=2000" 
-            className="w-full h-full object-cover grayscale-[0.2] scale-105"
+            src="https://images.unsplash.com/photo-1547524960-8f2733036ee3?auto=format&fit=crop&q=80&w=1400" 
+            className="w-full h-full object-cover grayscale-[0.2]"
             alt="Hero background"
+            fetchPriority="high"
           />
         </div>
         <div className="relative z-20 max-w-5xl mx-auto px-4 text-center">
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, ease: "easeOut" }}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <div className="inline-block bg-swojski-yellow/20 backdrop-blur-sm border border-swojski-yellow/50 px-4 py-1 rounded-full mb-6 text-swojski-yellow-light text-xs font-black uppercase tracking-[0.3em]">
+            <div className="inline-block bg-swojski-yellow/20 border border-swojski-yellow/50 px-4 py-1 rounded-full mb-6 text-swojski-yellow-light text-xs font-black uppercase tracking-[0.3em]">
               Autentyczna Polska Kuchnia
             </div>
             <h1 className="serif text-6xl md:text-8xl font-bold mb-8 text-white leading-[0.9] drop-shadow-[0_10px_10px_rgba(0,0,0,0.8)]">
@@ -199,7 +200,7 @@ export default function App() {
           </div>
           
           {/* Tabs Container */}
-          <div className="bg-stone-900/80 backdrop-blur-md p-3 rounded-[2.5rem] border-2 border-swojski-yellow/20 shadow-inner max-w-fit mx-auto mb-20 flex flex-wrap justify-center gap-2">
+          <div className="bg-stone-900 p-3 rounded-[2.5rem] border-2 border-swojski-yellow/20 shadow-inner max-w-fit mx-auto mb-20 flex flex-wrap justify-center gap-2">
             {MENU.map((category) => (
               <button
                 key={category.id}
@@ -230,10 +231,10 @@ export default function App() {
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeTab}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.4 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
                 className="text-left"
               >
                 <div className="mb-12 text-center">
@@ -247,11 +248,8 @@ export default function App() {
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-20 gap-y-10">
                   {activeCategory.items.map((item, idx) => (
-                    <motion.div 
+                    <div 
                       key={idx}
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: idx * 0.05 }}
                       className="flex justify-between items-start group"
                     >
                       <div className="flex-1">
@@ -261,7 +259,7 @@ export default function App() {
                       <div className="ml-6 shrink-0 bg-stone-100 px-3 py-1 rounded-lg border border-stone-200 shadow-sm">
                         <span className="serif text-xl font-black text-swojski-yellow-dark uppercase">{item.price}</span>
                       </div>
-                    </motion.div>
+                    </div>
                   ))}
                 </div>
               </motion.div>
@@ -287,7 +285,7 @@ export default function App() {
             </div>
             <div>
               <span className="block text-swojski-yellow text-xs font-black uppercase tracking-widest mb-1">otwarte</span>
-              <span className="serif text-2xl font-bold whitespace-nowrap">Codziennie od 12:00</span>
+              <span className="serif text-xl md:text-2xl font-bold md:whitespace-nowrap">Codziennie od 12:00</span>
             </div>
           </div>
           
@@ -299,7 +297,7 @@ export default function App() {
             </div>
             <div>
               <span className="block text-swojski-yellow text-xs font-black uppercase tracking-widest mb-1">Dzwoń do nas</span>
-              <span className="serif text-2xl font-bold whitespace-nowrap">693 944 644</span>
+              <span className="serif text-xl md:text-2xl font-bold md:whitespace-nowrap">693 944 644</span>
             </div>
           </div>
         </div>
@@ -356,7 +354,7 @@ export default function App() {
                   allowFullScreen={true} 
                   loading="lazy" 
                   referrerPolicy="no-referrer-when-downgrade"
-                  className="grayscale-[0.4] contrast-125 absolute inset-0"
+                  className="absolute inset-0"
                 />
                 <div className="absolute inset-0 pointer-events-none shadow-[inset_0_30px_100px_rgba(0,0,0,0.5)]" />
              </div>
@@ -372,6 +370,7 @@ export default function App() {
               src={LOGO_URL} 
               alt="Logo" 
               className="w-16 h-16 rounded-full border-2 border-swojski-yellow mb-8 shadow-2xl object-cover"
+              loading="lazy"
             />
             <h3 className="serif text-3xl font-bold text-white mb-2">Restauracja Swojskie Jadło</h3>
             <p className="text-swojski-yellow text-sm font-black uppercase tracking-[0.5em] mb-12">Najlepsza kuchnia w regionie</p>
