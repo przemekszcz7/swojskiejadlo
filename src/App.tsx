@@ -75,11 +75,11 @@ export default function App() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-swojski-black/95 border-b-2 border-swojski-yellow/30 shadow-2xl">
         <div className="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="relative">
+            <div className="relative shrink-0">
               <img 
                 src={LOGO_URL} 
                 alt="Logo" 
-                className="w-14 h-14 rounded-full border-2 border-swojski-yellow shadow-inner relative z-10"
+                className="w-14 h-14 rounded-full border-2 border-swojski-yellow shadow-inner relative z-10 object-cover"
               />
               <div className="absolute inset-0 bg-swojski-yellow blur-md opacity-20 animate-pulse" />
             </div>
@@ -99,7 +99,7 @@ export default function App() {
           </div>
           <a 
             href="tel:693944644" 
-            className="flex items-center gap-2 bg-swojski-yellow hover:bg-swojski-yellow-light text-white px-6 py-3 rounded-2xl text-sm font-black transition-all shadow-[0_4px_0_rgb(120,70,5)] active:translate-y-1 active:shadow-none"
+            className="hidden md:flex items-center gap-2 bg-swojski-yellow hover:bg-swojski-yellow-light text-white px-6 py-3 rounded-2xl text-sm font-black transition-all shadow-[0_4px_0_rgb(120,70,5)] active:translate-y-1 active:shadow-none"
           >
             <Phone size={18} fill="currentColor" />
             <span>693 944 644</span>
@@ -280,24 +280,26 @@ export default function App() {
       {/* Info Banner */}
       <section className="py-20 bg-swojski-green-dark relative overflow-hidden">
         <div className="absolute inset-0 wood-pattern opacity-20" />
-        <div className="max-w-7xl mx-auto px-4 relative z-10 flex flex-col md:flex-row items-center justify-center gap-12 text-white">
-          <div className="flex items-center gap-4 group">
-            <div className="w-16 h-16 bg-swojski-green border-2 border-swojski-yellow rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
+        <div className="max-w-7xl mx-auto px-4 relative z-10 flex flex-col md:flex-row items-stretch md:items-center justify-center gap-10 md:gap-16 text-white">
+          <div className="flex items-center gap-6 group w-full md:w-auto md:min-w-[280px]">
+            <div className="shrink-0 w-16 h-16 bg-swojski-green border-2 border-swojski-yellow rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
               <Clock size={32} />
             </div>
             <div>
-              <span className="block text-swojski-yellow text-xs font-black uppercase tracking-widest mb-1">Gospodarstwo otwarte</span>
-              <span className="serif text-2xl font-bold">Codziennie od 12:00</span>
+              <span className="block text-swojski-yellow text-xs font-black uppercase tracking-widest mb-1">otwarte</span>
+              <span className="serif text-2xl font-bold whitespace-nowrap">Codziennie od 12:00</span>
             </div>
           </div>
-          <div className="hidden md:block w-[2px] h-20 bg-swojski-yellow/20" />
-          <div className="flex items-center gap-4 group">
-            <div className="w-16 h-16 bg-swojski-green border-2 border-swojski-yellow rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
+          
+          <div className="hidden md:block w-[1px] h-16 bg-swojski-yellow/30" />
+          
+          <div className="flex items-center gap-6 group w-full md:w-auto md:min-w-[280px]">
+            <div className="shrink-0 w-16 h-16 bg-swojski-green border-2 border-swojski-yellow rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
               <Phone size={32} />
             </div>
             <div>
               <span className="block text-swojski-yellow text-xs font-black uppercase tracking-widest mb-1">Dzwoń do nas</span>
-              <span className="serif text-2xl font-bold">693 944 644</span>
+              <span className="serif text-2xl font-bold whitespace-nowrap">693 944 644</span>
             </div>
           </div>
         </div>
@@ -345,7 +347,7 @@ export default function App() {
                 </div>
              </div>
              
-             <div className="lg:col-span-8 h-[600px] relative">
+             <div className="lg:col-span-8 min-h-[450px] lg:h-auto relative">
                 <iframe 
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2305.989138681419!2d17.224404377215834!3d54.69221877317712!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46fe6dcd06116363%3A0x23efdc2ea1779688!2zU21vxYJkemnFhHNraSBMYXMgNDksIDc2LTIxNCBTbW_FgmR6acWEc2tpIExhcw!5e0!3m2!1spl!2spl!4v1778314608110!5m2!1spl!2spl" 
                   width="100%" 
@@ -354,7 +356,7 @@ export default function App() {
                   allowFullScreen={true} 
                   loading="lazy" 
                   referrerPolicy="no-referrer-when-downgrade"
-                  className="grayscale-[0.4] contrast-125"
+                  className="grayscale-[0.4] contrast-125 absolute inset-0"
                 />
                 <div className="absolute inset-0 pointer-events-none shadow-[inset_0_30px_100px_rgba(0,0,0,0.5)]" />
              </div>
@@ -369,7 +371,7 @@ export default function App() {
             <img 
               src={LOGO_URL} 
               alt="Logo" 
-              className="w-16 h-16 rounded-full border-2 border-swojski-yellow mb-8 shadow-2xl"
+              className="w-16 h-16 rounded-full border-2 border-swojski-yellow mb-8 shadow-2xl object-cover"
             />
             <h3 className="serif text-3xl font-bold text-white mb-2">Restauracja Swojskie Jadło</h3>
             <p className="text-swojski-yellow text-sm font-black uppercase tracking-[0.5em] mb-12">Najlepsza kuchnia w regionie</p>
