@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Libre Baskerville", serif;
+  
+  --color-swojski-black: #111111;
+  --color-swojski-green: #1b2e1b;
+  --color-swojski-green-dark: #0f1a0f;
+  --color-swojski-yellow: #a16207;
+  --color-swojski-yellow-dark: #854d0e;
+  --color-swojski-yellow-light: #eab308;
+  --color-swojski-wood: #3e2723;
+  --color-ivory: #faf9f6;
+}
+
+@layer base {
+  body {
+    @apply bg-swojski-black text-stone-200 font-sans antialiased;
+  }
+}
+
+.serif {
+  font-family: var(--font-serif);
+}
+
+.wood-pattern {
+  background-image: url("https://www.transparenttextures.com/patterns/pinstriped-suit.png"); /* Subtle vertical grain */
+}
+
+.paper-texture {
+  background-image: url("https://www.transparenttextures.com/patterns/retina-wood.png");
+}
+
+.rustic-border {
+  border-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10'%3E%3Cpath d='M0 0 L10 0 L10 10 L0 10 Z' fill='none' stroke='%23a16207' stroke-width='2'/%3E%3C/svg%3E") 10 stretch;
+}
+
+.inner-shadow {
+  box-shadow: inset 0 2px 15px rgba(0,0,0,0.5);
+}
+
+.rustic-card {
+  @apply bg-stone-900/40 backdrop-blur-sm border border-swojski-yellow/20 rounded-[2rem] shadow-2xl;
+  box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5), inset 0 1px 1px rgba(255,255,255,0.05);
+}
+
+.wood-brown-pattern {
+  background-color: #3e2723;
+  background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
+}
+
+.ivory-smooth {
+  background-color: var(--color-ivory);
+}
